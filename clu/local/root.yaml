@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/codeformio/k8s-cluster-config.git
     targetRevision: HEAD
-    path: clu/local/root
+    path: clu/local
   destination:
     server: https://kubernetes.default.svc
     namespace: default

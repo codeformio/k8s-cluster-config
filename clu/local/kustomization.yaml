@@ -3,4 +3,5 @@ kind: Kustomization
 
 resources:
 - ../../lib/argocd
-- gitops.yaml
+- root.yaml
+- apps.yaml

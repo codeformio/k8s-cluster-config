@@ -14,4 +14,5 @@ spec:
     path: clu/local/root
   destination:
     server: https://kubernetes.default.svc
+    namespace: default
 ---

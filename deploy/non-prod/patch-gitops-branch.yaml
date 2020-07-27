@@ -1,9 +1,8 @@
-# Self-manage this directory via GitOps.
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: na
 spec:
   source:
+    # Make sure we are pointing to the correct branch on all GitOps repos.
     targetRevision: non-prod
-    path: deploy/non-prod

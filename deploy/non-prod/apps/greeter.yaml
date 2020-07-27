@@ -17,6 +17,7 @@ spec:
       prune: true
   source:
     repoURL: https://github.com/codeformio/k8s-greeter-app.git
+    path: deploy/non-prod
   destination:
     server: https://kubernetes.default.svc
     namespace: greeter

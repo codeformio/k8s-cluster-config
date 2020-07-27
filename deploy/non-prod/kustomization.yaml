@@ -2,14 +2,12 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
+- ../base
 - ./root.yaml
-- ../../library/argocd
-- ../../library/gatekeeper/system
-- ../../library/gatekeeper/constraints
 - ./apps/greeter.yaml
 
 patches:
-- path: ./gitops-patch.yaml
+- path: ./patch-gitops-branch.yaml
   target:
     kind: Application
     group: argoproj.io

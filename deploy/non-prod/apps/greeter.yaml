@@ -1,7 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: greeter
+  labels:
+    app.kubernetes.io/component: greeter
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root
+  name: greeter-app
   namespace: argocd
 spec:
   project: default
@@ -9,10 +16,7 @@ spec:
     automated:
       prune: true
   source:
-    repoURL: https://github.com/codeformio/k8s-cluster-config.git
-    targetRevision: HEAD
-    path: clu/local
+    repoURL: https://github.com/codeformio/k8s-greeter-app.git
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
----
+    namespace: greeter

@@ -1,0 +1,21 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: AllowedRegistries
+metadata:
+  name: all-registries
+spec:
+  match:
+    kinds:
+    # Most granular type to enforce.
+    - apiGroups: [""]
+      kinds: ["Pod"]
+    # Higher level types to give helpful messages upon submission.
+    # Instead of failing at the Pod level.
+    - apiGroups: ["apps"]
+      kinds: ["Deployment", "StatefulSet"]
+    excludedNamespaces: ["kube-system", "kube-public", "kube-node-lease", "argocd", "gatekeeper-system"]
+  parameters:
+    registries:
+    - "gcr.io"
+    - "registry.hub.docker.com"
+    - "docker.io"
+    - "quay.io"

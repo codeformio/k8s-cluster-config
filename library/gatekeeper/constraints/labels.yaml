@@ -1,0 +1,20 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: RequiredLabels
+metadata:
+  name: best-practice-labels
+spec:
+  match:
+    kinds:
+    - apiGroups: [""]
+      kinds: ["Pod"]
+    - apiGroups: ["apps"]
+      kinds: ["Deployment", "StatefulSet"]
+    excludedNamespaces: ["kube-system", "kube-public", "kube-node-lease", "argocd", "gatekeeper-system"]
+  parameters:
+    message: "All workloads must be labelled according to Kubernetes best practices (https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/)."
+    labels:
+    - key: app.kubernetes.io/name
+    - key: app.kubernetes.io/instance
+    - key: app.kubernetes.io/component
+    - key: app.kubernetes.io/part-of
+    - key: app.kubernetes.io/managed-by

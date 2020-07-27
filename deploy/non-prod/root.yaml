@@ -1,7 +1,8 @@
+# Self-manage this directory via GitOps.
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: greeter
+  name: root
   namespace: argocd
 spec:
   project: default
@@ -9,10 +10,7 @@ spec:
     automated:
       prune: true
   source:
-    repoURL: https://github.com/codeformio/k8s-greeter-app.git
-    targetRevision: local
-    path: local
+    repoURL: https://github.com/codeformio/k8s-cluster-config.git
   destination:
     server: https://kubernetes.default.svc
-    namespace: greeter
----
+    namespace: default

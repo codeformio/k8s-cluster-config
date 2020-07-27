@@ -11,6 +11,8 @@ spec:
       prune: true
   source:
     repoURL: https://github.com/codeformio/k8s-cluster-config.git
+    targetRevision: non-prod
+    path: deploy/non-prod
   destination:
     server: https://kubernetes.default.svc
     namespace: default

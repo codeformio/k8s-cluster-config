@@ -4,16 +4,8 @@ metadata:
   name: policy-system
   namespace: argocd
 spec:
-  project: default
-  syncPolicy:
-    automated:
-      prune: true
   source:
-    repoURL: https://github.com/codeformio/k8s-cluster-config.git
     path: library/gatekeeper/system
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: default
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -21,13 +13,5 @@ metadata:
   name: policies
   namespace: argocd
 spec:
-  project: default
-  syncPolicy:
-    automated:
-      prune: true
   source:
-    repoURL: https://github.com/codeformio/k8s-cluster-config.git
     path: library/gatekeeper/constraints
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: default

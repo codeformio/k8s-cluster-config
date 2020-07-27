@@ -6,3 +6,9 @@ resources:
 - ./policies.yaml
 
 namePrefix: cluster-
+
+patches:
+- path: ./patch-gitops.yaml
+  target:
+    kind: Application
+    group: argoproj.io

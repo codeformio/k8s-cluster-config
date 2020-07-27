@@ -1,9 +1,7 @@
-# Self-manage this directory via GitOps.
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root
-  namespace: argocd
+  name: na
 spec:
   project: default
   syncPolicy:
@@ -12,8 +10,6 @@ spec:
       selfHeal: true
   source:
     repoURL: https://github.com/codeformio/k8s-cluster-config.git
-    targetRevision: non-prod
-    path: deploy/non-prod
   destination:
     server: https://kubernetes.default.svc
     namespace: default

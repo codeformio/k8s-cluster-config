@@ -5,12 +5,5 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  syncPolicy:
-    automated:
-      prune: true
   source:
-    repoURL: https://github.com/codeformio/k8s-cluster-config.git
     path: library/argocd
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: default

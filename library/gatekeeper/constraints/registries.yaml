@@ -13,7 +13,7 @@ spec:
     # Instead of failing at the Pod level.
     - apiGroups: ["apps"]
       kinds: ["Deployment", "StatefulSet"]
-    excludedNamespaces: ["kube-system", "kube-public", "kube-node-lease", "argocd", "gatekeeper-system"]
+    excludedNamespaces: ["kube-system", "kube-public", "kube-node-lease", "argocd", "gatekeeper-system", "local-path-storage"]
   parameters:
     registries:
     - "gcr.io"

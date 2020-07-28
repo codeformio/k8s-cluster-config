@@ -10,7 +10,7 @@ spec:
       kinds: ["Pod"]
     - apiGroups: ["apps"]
       kinds: ["Deployment", "StatefulSet"]
-    excludedNamespaces: ["kube-system", "kube-public", "kube-node-lease", "argocd", "gatekeeper-system"]
+    excludedNamespaces: ["kube-system", "kube-public", "kube-node-lease", "argocd", "gatekeeper-system", "local-path-storage"]
   parameters:
     message: "All workloads must be labelled according to Kubernetes best practices (https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/)."
     labels:

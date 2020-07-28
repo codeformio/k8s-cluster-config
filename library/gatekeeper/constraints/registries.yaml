@@ -3,6 +3,7 @@ kind: AllowedRegistries
 metadata:
   name: all-registries
 spec:
+  enforcementAction: dryrun
   match:
     kinds:
     # Most granular type to enforce.

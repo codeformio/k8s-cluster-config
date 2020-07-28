@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
 - registries.yaml
-  #- labels.yaml
+- labels.yaml

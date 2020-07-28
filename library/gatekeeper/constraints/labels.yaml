@@ -3,6 +3,7 @@ kind: RequiredLabels
 metadata:
   name: best-practice-labels
 spec:
+  enforcementAction: dryrun
   match:
     kinds:
     - apiGroups: [""]

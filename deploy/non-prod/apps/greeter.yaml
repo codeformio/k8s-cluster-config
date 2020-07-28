@@ -41,6 +41,7 @@ spec:
   syncPolicy:
     automated:
       prune: true
+      selfHeal: true
   source:
     repoURL: https://github.com/codeformio/k8s-greeter-app.git
     path: deploy/non-prod

@@ -8,8 +8,6 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  source:
-    repoURL: https://github.com/codeformio/k8s-cluster-config.git
   destination:
     server: https://kubernetes.default.svc
     namespace: default

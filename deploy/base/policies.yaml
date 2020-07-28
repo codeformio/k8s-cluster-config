@@ -5,6 +5,7 @@ metadata:
   namespace: argocd
 spec:
   source:
+    repoURL: https://github.com/codeformio/k8s-cluster-config.git
     path: library/gatekeeper/system
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -14,4 +15,5 @@ metadata:
   namespace: argocd
 spec:
   source:
+    repoURL: https://github.com/codeformio/k8s-cluster-config.git
     path: library/gatekeeper/constraints

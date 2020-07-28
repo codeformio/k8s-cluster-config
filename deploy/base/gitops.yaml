@@ -6,4 +6,5 @@ metadata:
 spec:
   project: default
   source:
+    repoURL: https://github.com/codeformio/k8s-cluster-config.git
     path: library/argocd

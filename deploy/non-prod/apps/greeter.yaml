@@ -21,8 +21,7 @@ spec:
       selfHeal: true
   source:
     repoURL: https://github.com/codeformio/k8s-greeter-app.git
-    path: deploy/non-prod
-    targetRevision: non-prod
+    path: deploy/staging
   destination:
     server: https://kubernetes.default.svc
     namespace: greeter
@@ -40,8 +39,7 @@ spec:
       selfHeal: true
   source:
     repoURL: https://github.com/codeformio/k8s-greeter-app.git
-    path: deploy/non-prod
-    targetRevision: feature/x
+    path: deploy/feature-x
   destination:
     server: https://kubernetes.default.svc
     namespace: greeter-feature-x

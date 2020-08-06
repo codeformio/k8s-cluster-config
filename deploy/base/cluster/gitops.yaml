@@ -3,8 +3,6 @@ kind: Application
 metadata:
   name: gitops-engine
   namespace: argocd
-  labels:
-    app.kubernetes.io/part-of: platform
 spec:
   project: default
   source:

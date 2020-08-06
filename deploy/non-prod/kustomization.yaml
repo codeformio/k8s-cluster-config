@@ -8,9 +8,7 @@ resources:
 - ./apps/greeter.yaml
 
 patches:
-# Ensure branch matches for all cluster-level GitOps apps.
 - path: ./patch-gitops-branch.yaml
   target:
     kind: Application
     group: argoproj.io
-    labelSelector: app.kubernetes.io/part-of=platform

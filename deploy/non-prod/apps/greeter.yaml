@@ -24,4 +24,5 @@ spec:
     path: deploy/non-prod
   destination:
     server: https://kubernetes.default.svc
+    namespace: greeter
 

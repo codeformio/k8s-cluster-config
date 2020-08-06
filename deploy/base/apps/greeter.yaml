@@ -11,6 +11,8 @@ spec:
   destinations:
   - namespace: greeter
     server: https://kubernetes.default.svc
+  - namespace: greeter-*
+    server: https://kubernetes.default.svc
   # Deny cluster scoped resources.
   clusterResourceWhitelist: []
   # Allow all namespaced-scoped resources to be created, except for ResourceQuota, LimitRange, NetworkPolicy

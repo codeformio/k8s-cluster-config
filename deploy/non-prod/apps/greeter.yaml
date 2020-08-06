@@ -3,33 +3,10 @@ kind: Namespace
 metadata:
   name: greeter
 ---
-apiVersion: argoproj.io/v1alpha1
-kind: AppProject
+apiVersion: v1
+kind: Namespace
 metadata:
-  name: greeter
-  namespace: argocd
-  # Finalizer that ensures that project is not deleted until it is not referenced by any application
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  description: Greeter application greets people.
-  # Allow manifests to deploy from any Git repos
-  sourceRepos:
-  - 'https://github.com/codeformio/*'
-  # Only permit applications to deploy to the guestbook namespace in the same cluster
-  destinations:
-  - namespace: greeter
-    server: https://kubernetes.default.svc
-  # Deny cluster scoped resources.
-  clusterResourceWhitelist: []
-  # Allow all namespaced-scoped resources to be created, except for ResourceQuota, LimitRange, NetworkPolicy
-  namespaceResourceBlacklist:
-  - group: ''
-    kind: ResourceQuota
-  - group: ''
-    kind: LimitRange
-  - group: ''
-    kind: NetworkPolicy
+  name: greeter-feature-x
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -44,8 +21,26 @@ spec:
       selfHeal: true
   source:
     repoURL: https://github.com/codeformio/k8s-greeter-app.git
-    path: deploy/non-prod
+    path: deploy/staging
   destination:
     server: https://kubernetes.default.svc
     namespace: greeter
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: greeter-app-feature-x
+  namespace: argocd
+spec:
+  project: greeter
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  source:
+    repoURL: https://github.com/codeformio/k8s-greeter-app.git
+    path: deploy/feature-x
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: greeter-feature-x
 

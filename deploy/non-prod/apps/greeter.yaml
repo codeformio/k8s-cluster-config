@@ -6,7 +6,7 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: greeter-stg
+  name: greeter-feature-x
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -22,7 +22,27 @@ spec:
   source:
     repoURL: https://github.com/codeformio/k8s-greeter-app.git
     path: deploy/non-prod
+    targetRevision: non-prod
   destination:
     server: https://kubernetes.default.svc
     namespace: greeter
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: greeter-app-feature-x
+  namespace: argocd
+spec:
+  project: greeter
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  source:
+    repoURL: https://github.com/codeformio/k8s-greeter-app.git
+    path: deploy/non-prod
+    targetRevision: feature/x
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: greeter-feature-x
 

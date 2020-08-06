@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: policy-system
   namespace: argocd
+  labels:
+    app.kubernetes.io/part-of: platform
 spec:
   source:
     repoURL: https://github.com/codeformio/k8s-cluster-config.git
@@ -13,6 +15,8 @@ kind: Application
 metadata:
   name: policies
   namespace: argocd
+  labels:
+    app.kubernetes.io/part-of: platform
 spec:
   source:
     repoURL: https://github.com/codeformio/k8s-cluster-config.git

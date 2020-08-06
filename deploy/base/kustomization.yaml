@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
 - ./gitops.yaml
-- ./policies.yaml
+  #- ./policies.yaml
 
 namePrefix: cluster-
 

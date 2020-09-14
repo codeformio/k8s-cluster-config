@@ -1,0 +1,30 @@
+apiVersion: templates.gatekeeper.sh/v1alpha1
+kind: ConstraintTemplate
+metadata:
+  creationTimestamp: null
+  name: validgitopssource
+spec:
+  crd:
+    spec:
+      names:
+        kind: ValidGitopsSource
+      validation:
+        openAPIV3Schema:
+          properties:
+            branchBlocklist:
+              items:
+                type: string
+              type: array
+  targets:
+  - rego: |+
+      package k8svalidgitopssource
+
+      violation[{"msg": msg}] {
+        branch := input.parameters.branchBlocklist[_]
+        obj := input.review.object
+        obj.spec.source.targetRevision == branch
+        msg := sprintf("application <%v> has an invalid source branch <%v>", [obj.metadata.name, branch])
+      }
+
+    target: admission.k8s.gatekeeper.sh
+status: {}

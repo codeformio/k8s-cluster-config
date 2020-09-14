@@ -1,0 +1,7 @@
+apiversion: constraints.gatekeeper.sh/v1beta1
+kind: requiredgitopssource
+metadata:
+  name: required-gitops-source
+spec:
+  parameters:
+    branchBlocklist: ["prod"]

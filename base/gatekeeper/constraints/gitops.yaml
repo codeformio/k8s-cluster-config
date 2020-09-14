@@ -1,0 +1,12 @@
+apiversion: constraints.gatekeeper.sh/v1beta1
+kind: requiredgitopssource
+metadata:
+  name: required-gitops-source
+spec:
+  enforcementaction: dryrun
+  match:
+    kinds:
+    - apigroups: ["applications.argoproj.io"]
+      kinds: ["application"]
+  parameters:
+    branchBlocklist: []

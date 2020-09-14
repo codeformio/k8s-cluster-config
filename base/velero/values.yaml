@@ -1,0 +1,5 @@
+velero:
+  configuration:
+    provider: aws
+    backupStorageLocation:
+      bucket: placeholder

@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
 - registry-whitelist.yaml
 - required-labels.yaml
+- gitops-source.yaml

@@ -6,7 +6,7 @@ spec:
   enforcementaction: dryrun
   match:
     kinds:
-    - apigroups: ["applications.argoproj.io"]
-      kinds: ["application"]
+    - apiGroups: ["applications.argoproj.io"]
+      kinds: ["Application"]
   parameters:
     branchBlocklist: []

@@ -6,7 +6,7 @@ namespace: argocd
 resources:
 - namespace.yaml
 # TODO: Look at HA option (manifests/ha/cluster-install)
-- github.com/argoproj/argo-cd/manifests/cluster-install?ref=v1.6.1
+- github.com/argoproj/argo-cd/manifests/cluster-install?ref=v1.7.7
 
 # changes to config maps
 patchesStrategicMerge:
